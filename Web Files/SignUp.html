@@ -1,0 +1,58 @@
+<!--
+/******************************************************************************
+*	Program Author: Dr. Yongming Tang for CSCI 6810 Java and the Internet	  *
+*	Date: September, 2012													  *
+*******************************************************************************/
+-->
+
+<HTML>
+<HEAD>
+<TITLE>Sign Up</TITLE>
+</HEAD>
+<BODY BGCOLOR='#FFFFEE'>
+<h3 align="center">Welcome to our online registration!</h3><br>
+<A style="TEXT-DECORATION:NONE;" HREF="/project4/login.html"><p align="RIGHT"><INPUT TYPE="BUTTON" VALUE="Home"></p></A><br>
+<FORM NAME="SignUpPage" ACTION="/OnlineSignUpServlet" METHOD ="post"> <!-- /CSCI6810/SignUp.jsp -->
+<table align="center">
+<tr><td>Username:</td><td><INPUT TYPE="TEXT" NAME="UsernameField" SIZE=20></td></tr>
+<tr><td>Password:</td><td><INPUT TYPE="PASSWORD" NAME="PasswordField" SIZE=20></td></tr>
+<tr><td>Re-enter Password:</td><td><INPUT TYPE="PASSWORD" NAME="RePasswordField" SIZE=20></td></tr>
+<tr><td>Name:</td><td><INPUT TYPE="TEXT" NAME="NameField" SIZE=20></td></tr>
+</table>
+
+<P align="center">
+<INPUT TYPE="BUTTON" VALUE="Register" onClick="checkInputs()">
+<INPUT TYPE="RESET" VALUE="Reset">
+</P>
+</FORM>
+</BODY>
+</HTML>
+
+<SCRIPT LANGUAGE="JavaScript">
+document.SignUpPage.UsernameField.focus();
+   function checkInputs()
+   {
+       var Prompts = "";
+       Username = window.document.SignUpPage.UsernameField.value;
+       Password = document.SignUpPage.PasswordField.value;
+       RePassword = SignUpPage.RePasswordField.value;
+       Name = SignUpPage.NameField.value;
+       if (Username == "" || Password == "" || RePassword == "" || Name == "") {
+          if (Username == "")
+             Prompts +="Please enter your username!\n";
+          if (Password == "")
+             Prompts +="Please enter your password!\n";
+          if (RePassword == "")
+             Prompts +="Please re-enter your password!\n";
+          if (Name == "")
+             Prompts +="Please enter your name!\n";
+          if (Prompts != "")
+             window.alert(Prompts);
+       } else if (RePassword != Password) {
+             window.alert("Your entered passwords are not same. Please enter the same one!");
+       }else {
+          document.SignUpPage.submit();
+       }
+   }
+
+</SCRIPT>

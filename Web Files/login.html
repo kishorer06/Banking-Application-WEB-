@@ -1,0 +1,35 @@
+<HTML>
+<HEAD></HEAD>
+<BODY bgcolor="#F1F1FD">
+<FORM NAME="LoginPage" ACTION="/OnlineLoginServlet" METHOD ="POST"> <!--/CSCI6810/Welcome.jsp -->
+<table ALIGN="center" bgcolor="#ECFAEB">
+<tr><td>Username:</td><td><INPUT TYPE="TEXT" NAME="Username" SIZE=20></td></tr>
+<tr><td>Password:</td><td><INPUT TYPE="PASSWORD" NAME="PassWord" SIZE=20></td></tr>
+<tr><td></td><td><INPUT TYPE="BUTTON" VALUE="Login" onClick="checkInputs()"> <INPUT TYPE="RESET" VALUE="Reset"></td></tr>
+<tr><td></td><td><p>In order to have a service, please log on to the system first!</p></td></tr>
+</table>&nbsp;&nbsp;
+</FORM>
+<center><Button><A style="TEXT-DECORATION:NONE;"  HREF='/project4/SignUp.html'>SignUp</A></Button><p>Not Yet Registered!!! Please Do SIGNUP</center>
+</BODY>
+<SCRIPT LANGUAGE="JavaScript">
+document.LoginPage.Username.focus();
+function checkInputs()
+{
+var Prompts = "";
+Username = window.document.LoginPage.Username.value;
+Password = window.document.LoginPage.PassWord.value;
+if (Username == "" || Password == "") {
+if (Username == "")
+Prompts +="Please enter your username!\n";
+if (Password == "")
+Prompts +="Please enter your password!\n";
+if (Prompts != "")
+window.alert(Prompts);
+} else {
+document.LoginPage.submit();
+}
+}
+</SCRIPT>
+</HTML>
+
+
